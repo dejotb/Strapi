@@ -14,7 +14,7 @@ async function getProducts() {
 
 
 async function getImages() {
-    const getApi = await fetch('https://strapi-production-4272.up.railway.app/api/upload/files', {
+    const getApi = await fetch('https://strapi-production-4272.up.railway.app/api/illustrations?populate=Image', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -23,15 +23,15 @@ async function getImages() {
 
       const data = await getApi.json();
 
-const urls = data.map(el => el.formats.small.url)
 
-console.log();
 
-     return urls;
+console.log(data.data);
+
+     return data.data;
 }
 
 
-getImages()
+// getImages()
 
 
 const container = document.querySelector('.container')
@@ -61,8 +61,8 @@ function createImage(data) {
 async function showImgs() {
     const images = await getImages();
     images.forEach(element => {
-        console.log(element);
-        createImage(element)
+        console.log();
+        createImage(element.attributes.Image.data[0].attributes.url)
     });
 }
 
