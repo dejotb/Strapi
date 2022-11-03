@@ -1,20 +1,20 @@
 {
   "kind": "collectionType",
-  "collectionName": "pictures",
+  "collectionName": "illustrations",
   "info": {
-    "singularName": "picture",
-    "pluralName": "pictures",
-    "displayName": "picture"
+    "singularName": "illustration",
+    "pluralName": "illustrations",
+    "displayName": "illustration"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
-    "image": {
+    "Image": {
       "allowedTypes": [
         "images",
         "files",
