@@ -11,6 +11,7 @@ import HelloWorld from "@/components/gallery.vue";
 
 export default {
   name: "HomeView",
+
   components: {
     HelloWorld,
   },
