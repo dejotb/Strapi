@@ -9,6 +9,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-strapi": "strapi build",
     "lint": "vue-cli-service lint",
     "develop": "strapi develop",
     "start": "strapi start",
