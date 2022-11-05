@@ -1,31 +1,24 @@
----
-title: Strapi
-description: A self-hosted version of Strapi using a Postgres database
-tags:
-  - strapi
-  - postgresql
-  - cms
-  - javascript
----
+# strapi
 
-# Strapi example
+## Project setup
+```
+npm install
+```
 
-This example deploys self-hosted version of [Strapi](https://strapi.io/). Internally it uses a PostgreSQL database to store the data.
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/strapi)
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## ✨ Features
+### Lints and fixes files
+```
+npm run lint
+```
 
-- Strapi
-- Postgres
-
-## 💁‍♀️ How to use
-
-- Click the Railway button 👆
-- Add the environment variables
-  - If you do not add the Cloudinary related environment variables, your images/files will not be persisted between deploys.
-
-## 📝 Notes
-
-- After your app is deployed, visit the `/admin` endpoint to create your admin user.
-- Railway's filesystem is ephemeral which is why any changes to the filesystem are not persisted between deploys. This is why, this example uses Cloudinary for storage.
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
