@@ -37,7 +37,7 @@ export default {
 
       const data = await getApi.json();
 
-      // console.log(data.data);
+      console.log(data.data);
 
       this.images = data.data;
     },
