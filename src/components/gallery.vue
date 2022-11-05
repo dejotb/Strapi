@@ -1,5 +1,5 @@
 <template>
-  <button @click="getImages">CLICK me</button>
+  <!-- <button @click="getImages">CLICK me</button> -->
   <ul class="container">
     <li v-for="(image, index) in images" :key="index">
       <img :src="image.attributes.Image.data[0].attributes.url" alt="image" />
@@ -14,6 +14,9 @@ export default {
     msg: String,
   },
 
+  beforeMount() {
+    this.getImages();
+  },
   data() {
     return {
       images: [],
