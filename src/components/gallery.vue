@@ -9,12 +9,12 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "galleryView",
   props: {
     msg: String,
   },
 
-  beforeMount() {
+  created() {
     this.getImages();
   },
   data() {
