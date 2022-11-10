@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Work</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #ece8f5;
 }
 
 nav {

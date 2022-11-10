@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import galleryView from "@/components/gallery.vue";
+import galleryView from "@/components/IllustrationsGallery.vue";
 
 export default {
   name: "HomeView",
@@ -17,3 +17,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.home {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+</style>
