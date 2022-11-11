@@ -1,18 +1,20 @@
 <template>
-  <ul class="gallery__container">
-    <li v-for="(image, index) in images" :key="index">
-      <img
-        :src="image.attributes.Image.data[0].attributes.url"
-        alt="image"
-        loading="lazy"
-      />
-    </li>
-  </ul>
+  <section>
+    <ul class="gallery__container">
+      <li v-for="(image, index) in images" :key="index">
+        <img
+          :src="image.attributes.Image.data[0].attributes.url"
+          alt="image"
+          loading="lazy"
+        />
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "galleryView",
+  // name: "galleryView",
   props: {
     msg: String,
   },
@@ -49,7 +51,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 body {
   background-color: #ece8f5;
 }
@@ -61,11 +63,6 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-/* li:nth-of-type(3n) { */
-/* background-color: red; */
-/* display: inline-block; */
-/* margin: 0 10px; */
-/* } */
 
 a {
   color: #42b983;
@@ -78,29 +75,33 @@ li img {
   object-fit: cover;
   object-position: 50% 50%;
   cursor: pointer;
+  border-radius: 10px;
   /* overflow: hidden; */
 }
 
 li:nth-child(2n) {
-  grid-row: span 2;
+  @media (min-width: 600px) {
+    grid-row: span 2;
+  }
 }
 li:nth-child(5n) {
-  grid-column: span 2;
+  @media (min-width: 600px) {
+    grid-column: span 2;
+  }
 }
-/* li:nth-child(3) {
-  grid-column: span 2;
-} */
 
 .gallery__container {
   display: grid;
-  grid-gap: 20px;
-  /* justify-content: center; */
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  /* grid-auto-rows: 300px; */
-  /* align-items: center; */
-  /* background-color: pink; */
-  grid-auto-rows: 300px 300px 400px;
-  grid-auto-flow: dense;
-  /* transition: grid-columns-rows 1s; */
+  grid-template-columns: repeat((auto-fit, minmax(200px, 400px)));
+  grid-auto-rows: 400px;
+  justify-content: center;
+  grid-gap: 10px;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 300px 300px 400px;
+    grid-gap: 20px;
+    grid-auto-flow: dense;
+  }
 }
 </style>
