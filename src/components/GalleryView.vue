@@ -3,8 +3,9 @@
     <ul class="gallery__container">
       <li v-for="(image, index) in images" :key="index">
         <img
-          :src="image.attributes.Image.data[0].attributes.url"
-          alt="image"
+          :src="image.imgUrl"
+          :alt="image.caption"
+          :data-id="image.id"
           loading="lazy"
         />
       </li>
@@ -14,14 +15,6 @@
 
 <script>
 export default {
-  // name: "galleryView",
-  props: {
-    msg: String,
-  },
-
-  created() {
-    this.getImages();
-  },
   data() {
     return {
       images: [],
@@ -30,30 +23,43 @@ export default {
 
   methods: {
     async getImages() {
-      const getApi = await fetch(
-        "https://strapi-production-4272.up.railway.app/api/illustrations?populate=Image",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      try {
+        const getApi = await fetch(
+          "https://strapi-production-4272.up.railway.app/api/illustrations?populate=Image",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-      const data = await getApi.json();
+        const data = await getApi.json();
 
-      console.log(data.data);
+        const results = data.data.map((el) => {
+          return {
+            id: el.id,
+            caption: el.attributes.Title,
+            imgUrl: el.attributes.Image.data[0].attributes.url,
+          };
+        });
 
-      this.images = data.data;
+        this.images = results;
+      } catch (err) {
+        console.log(err);
+      }
     },
+  },
+
+  mounted() {
+    this.getImages();
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-body {
-  background-color: #ece8f5;
+section {
+  padding: 1rem;
 }
 
 h3 {
@@ -71,12 +77,10 @@ a {
 li img {
   width: 100%;
   height: 100%;
-  /* aspect-ratio: 1/1; */
   object-fit: cover;
   object-position: 50% 50%;
   cursor: pointer;
   border-radius: 10px;
-  /* overflow: hidden; */
 }
 
 li:nth-child(2n) {

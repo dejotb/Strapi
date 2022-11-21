@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <galleryView msg="Welcome to Your Vue.js App" />
+    <galleryView />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import galleryView from "@/components/IllustrationsGallery.vue";
+import galleryView from "@/components/GalleryView.vue";
 
 export default {
   name: "HomeView",
@@ -18,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .home {
   max-width: 1100px;
   margin: 0 auto;

@@ -1,10 +1,20 @@
 <template>
+  <the-header> </the-header>
   <nav>
     <router-link to="/">Work</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/">Contact</router-link>
+    <router-view />
   </nav>
-  <router-view />
 </template>
+
+<script>
+import TheHeader from "./components/TheHeader.vue";
+
+export default {
+  components: { TheHeader },
+};
+</script>
 
 <style>
 #app {
@@ -16,8 +26,13 @@
   background-color: #ece8f5;
 }
 
+body {
+  margin: 0;
+  width: 100vw;
+}
+
 nav {
-  padding: 30px;
+  /* padding: 30px; */
 }
 
 nav a {
