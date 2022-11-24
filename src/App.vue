@@ -26,13 +26,19 @@ export default {
   background-color: #ece8f5;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  width: 100vw;
+  margin: 0 auto;
+  /* width: 100vw; */
+  /* max-width: 100vw; */
 }
 
 nav {
   /* padding: 30px; */
+  max-width: 100vw;
 }
 
 nav a {

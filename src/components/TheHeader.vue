@@ -6,7 +6,7 @@
 
 <style scoped>
 header {
-  width: 100%;
+  /* width: 100vw; */
   padding: 2rem 0;
 }
 
