@@ -1,7 +1,7 @@
 <template>
   <Swiper
     :slides-per-view="1"
-    :space-between="50"
+    :space-between="5"
     :modules="[Navigation, Pagination, A11y, Virtual]"
     navigation
     :pagination="{ clickable: true, dynamicBullets: true }"
