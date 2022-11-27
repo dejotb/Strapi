@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkstrapi"]=self["webpackChunkstrapi"]||[]).push([[443],{653:function(n,r,t){t.r(r),t.d(r,{default:function(){return f}});var s=t(396);const u={class:"about"};function a(n,r){return(0,s.wg)(),(0,s.iD)("div",u)}var e=t(89);const c={},i=(0,e.Z)(c,[["render",a]]);var f=i}}]);
-//# sourceMappingURL=about.090546c8.js.map
+//# sourceMappingURL=about.a7415afc.js.map

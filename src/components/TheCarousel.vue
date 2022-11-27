@@ -1,26 +1,50 @@
 <template>
-  <Swiper
-    :slides-per-view="1"
-    :space-between="5"
-    :modules="[Navigation, Pagination, A11y, Virtual]"
-    navigation
-    :pagination="{ clickable: true, dynamicBullets: true }"
-    grab-cursor
-    virtual
-  >
-    <SwiperSlide v-for="n in images" :key="n" :virtualIndex="n">
-      <img :src="n.url" alt="" />
-    </SwiperSlide>
-  </Swiper>
+  <section>
+    <Swiper
+      @swiper="onSwiper"
+      :slides-per-view="1"
+      :space-between="50"
+      :modules="[Navigation, Pagination, A11y, Lazy]"
+      navigation
+      :pagination="{ clickable: true, dynamicBullets: true }"
+      grab-cursor
+      :preload-images="false"
+      lazy
+    >
+      <SwiperSlide v-for="n in images" :key="n" class="customSlide">
+        <img :data-src="n.url" :alt="n.caption" class="swiper-lazy" />
+        <div class="swiper-lazy-preloader"></div>
+      </SwiperSlide>
+    </Swiper>
+  </section>
 </template>
 
 <script>
-import { Navigation, Pagination, A11y, Virtual } from "swiper";
+// import { ref, watch, toRefs } from "vue";
+import { Navigation, Pagination, A11y, Lazy } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/swiper-bundle.css";
+
+// const props = defineProps({
+//   currentSlide: Number,
+// });
+
+// const swiperRef = ref(null);
+
+// const { currentSlide } = toRefs(props);
+
+// watch(currentSlide, () => {
+//   if (swiperRef.value !== null) {
+//     swiperRef.value.slideTo(props.currentSlide);
+//   }
+// });
+
+// const onSwiper = (swiper) => {
+//   swiperRef.value = swiper;
+// };
 
 export default {
   components: {
@@ -39,7 +63,7 @@ export default {
       Navigation,
       Pagination,
       A11y,
-      Virtual,
+      Lazy,
     };
   },
 
@@ -73,8 +97,16 @@ export default {
     },
   },
 
-  mounted() {
-    this.getImages();
+  async mounted() {
+    await this.getImages();
   },
 };
 </script>
+
+<style scoped>
+.customSlide {
+  display: grid;
+  place-items: center;
+  max-height: 100vh;
+}
+</style>
