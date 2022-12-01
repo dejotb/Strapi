@@ -11,7 +11,7 @@
     </div>
   </div>
   <teleport to="body">
-    <div class="lightbox" v-show="lightboxVisible">
+    <div class="lightbox" v-show="lightboxVisible" @click.stop="closeCarousel">
       <div class="lightbox__dialog">
         <div class="lightbox__content">
           <div class="lightbox__header">
@@ -78,6 +78,12 @@ export default {
         console.log(err);
       }
     },
+
+    closeCarousel(e) {
+      e.target.classList.contains("swiper-slide")
+        ? (this.lightboxVisible = false)
+        : (this.lightboxVisible = true);
+    },
   },
 
   async mounted() {
@@ -138,6 +144,9 @@ export default {
     padding: 0;
     width: inherit;
     height: inherit;
+    display: grid;
+    justify-items: center;
+    align-items: center;
   }
 
   &__content {
@@ -146,15 +155,14 @@ export default {
     overflow: auto;
     width: inherit;
     height: inherit;
-    // display: grid;
-    // align-items: center;
+
     // align-items: end;
   }
 
   &__header {
     padding: 10px;
     width: calc(100vw - 30px);
-    position: absolute;
+    // position: absolute;
     z-index: 104;
     top: 0;
     left: 0;
@@ -194,6 +202,18 @@ export default {
       text-decoration: none;
       cursor: pointer;
     }
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl,
+  .swiper-button-next {
+    left: 20px;
+  }
+
+  .swiper-button-next,
+  .swiper-rtl,
+  .swiper-button-prev {
+    right: 20px;
   }
 }
 </style>

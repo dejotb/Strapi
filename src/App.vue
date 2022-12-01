@@ -32,6 +32,7 @@ export default {
 
 body {
   margin: 0 auto;
+  /* overflow: hidden; */
   /* width: 100vw; */
   /* max-width: 100vw; */
 }
