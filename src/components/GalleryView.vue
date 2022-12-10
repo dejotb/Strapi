@@ -51,8 +51,8 @@ export default {
     },
   },
 
-  mounted() {
-    this.getImages();
+  async mounted() {
+    await this.getImages();
   },
 };
 </script>
