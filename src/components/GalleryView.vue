@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul class="gallery__container">
-      <li v-for="(image, index) in images" :key="index">
+      <li v-for="(image, index) in images" :key="index" class="gallery__item">
         <img
           :src="image.imgUrl"
           :alt="image.caption"
@@ -65,47 +65,44 @@ section {
 h3 {
   margin: 40px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 
 a {
   color: #42b983;
 }
 
-li img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-  cursor: pointer;
-  border-radius: 10px;
-}
+.gallery {
+  &__container {
+    padding: 1rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 345px));
+    grid-auto-rows: max-content;
+    gap: 10px;
 
-li:nth-child(2n) {
-  @media (min-width: 600px) {
-    grid-row: span 2;
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, minmax(100px, 345px));
+    }
   }
-}
-li:nth-child(5n) {
-  @media (min-width: 600px) {
-    grid-column: span 2;
-  }
-}
 
-.gallery__container {
-  display: grid;
-  grid-template-columns: repeat((auto-fit, minmax(200px, 400px)));
-  grid-auto-rows: 400px;
-  justify-content: center;
-  grid-gap: 10px;
+  &__item {
+    width: auto;
+    overflow: hidden;
 
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: 300px 300px 400px;
-    grid-gap: 20px;
-    grid-auto-flow: dense;
+    & img {
+      scale: 1;
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      max-height: 345px;
+      object-fit: cover;
+      background-color: pink;
+      cursor: pointer;
+      transition: all 2.2s cubic-bezier(0.14, 0.4, 0.09, 0.99);
+    }
+
+    & img:hover {
+      scale: 1.15;
+    }
   }
 }
 </style>
