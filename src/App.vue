@@ -1,7 +1,9 @@
 <template>
   <the-header> </the-header>
   <nav>
-    <router-link to="/">Work</router-link> |
+    <router-link to="/">Illustrations</router-link> |
+    <router-link to="/about">Canvas</router-link> |
+    <router-link to="/about">Auctions</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/">Contact</router-link>
     <router-view />
