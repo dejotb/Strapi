@@ -1,23 +1,20 @@
 <template>
   <div class="home">
     <!-- <the-carousel /> -->
-    <galleryView></galleryView>
+    <ul>
+      <galleryView></galleryView>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import galleryView from "@/components/GalleryView.vue";
-// import TheCarousel from "@/components/TheCarousel.vue";
-// import TheLightbox from "@/components/TheLightbox.vue";
 
 export default {
   name: "HomeView",
 
   components: {
     galleryView,
-    // TheCarousel,
-    // TheLightbox,
   },
 };
 </script>

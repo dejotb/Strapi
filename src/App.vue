@@ -1,26 +1,23 @@
 <template>
   <the-header> </the-header>
-  <nav>
-    <router-link to="/">Illustrations</router-link> |
-    <router-link to="/about">Canvas</router-link> |
-    <router-link to="/about">Auctions</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/">Contact</router-link>
-    <router-view />
-  </nav>
+  <the-navigation></the-navigation>
 </template>
 
 <script>
+import TheNavigation from "./components/nav/TheNavigation.vue";
 import TheHeader from "./components/TheHeader.vue";
 
 export default {
-  components: { TheHeader },
+  components: { TheNavigation, TheHeader },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Indie Flower", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -37,20 +34,6 @@ body {
   /* overflow: hidden; */
   /* width: 100vw; */
   /* max-width: 100vw; */
-}
-
-nav {
-  /* padding: 30px; */
-  max-width: 100vw;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 
 ul {
