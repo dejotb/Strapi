@@ -101,7 +101,7 @@ a {
     }
 
     & img:hover {
-      scale: 1.15;
+      scale: 1.14;
     }
   }
 }

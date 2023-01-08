@@ -22,7 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #ece8f5;
+  /* background-color: #ece8f5; */
 }
 
 * {
@@ -39,5 +39,13 @@ body {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: inherit;
 }
 </style>
