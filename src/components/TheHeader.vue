@@ -34,15 +34,21 @@
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   display: grid;
   justify-items: center;
   /* width: 100vw; */
+  //
+
   padding: 1rem;
 }
 .logo {
-  max-width: 24rem;
+  max-width: 15rem;
+
+  @media screen and (min-width: 700px) {
+    max-width: 23rem;
+  }
 }
 
 .social {
